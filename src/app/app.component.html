@@ -1,0 +1,6 @@
+<mat-toolbar color="primary">
+  <span>Tic Tac Toe</span>
+  <span class="mat-spacer"></span>
+  <button *ngIf="isLoggedIn" mat-button (click)="logout()">Logout</button>
+</mat-toolbar>
+<router-outlet />

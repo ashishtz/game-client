@@ -1,0 +1,50 @@
+<div class="game-container" *ngIf="!isConnecting">
+  <div class="content-left">
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title> Tic Tac Toe</mat-card-title>
+        <mat-card-subtitle>Two Players Game</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions align="end">
+        <div class="unique-id-section">
+          <b>{{ roomId }}</b>
+          <mat-icon
+            tabindex="-1"
+            aria-hidden="false"
+            class="copy-to-clipboard"
+            aria-label="Copy Room ID"
+            fontIcon="{{isCopied ? 'check' : 'content_copy'}}"
+            (click)="copyUniqueId()"
+          ></mat-icon>
+        </div>
+      </mat-card-actions>
+      <mat-card-content>
+        <h3 *ngIf="!winner">{{turn}}</h3>
+        <div class="box">
+          <button
+            (click)="restartGame()"
+            disabled="{{!winner || winner === player?.name || !canBePlayed}}"
+            mat-raised-button
+            color="primary"
+          >
+            Restart
+          </button>
+        </div>
+        <div class="box">
+          <mat-chip *ngFor="let player of players" class="player-chips" color="primary">
+            <b *ngIf="player.connected">{{player.won}}</b>
+            {{!player.connected ? "Reconnecting..." : player.name}}
+          </mat-chip>
+          <mat-chip class="player-chips">
+            <b>{{draws}}</b>
+            Draws
+          </mat-chip>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!-- Canvas rendered here -->
+  <div class="content-right" *ngIf="canBePlayed">
+    <app-scene></app-scene>
+  </div>
+</div>

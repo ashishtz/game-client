@@ -1,0 +1,42 @@
+<div class="content">
+  <mat-card class="instructions">
+    <mat-card-header>
+      <mat-card-title>How to Play Tic Tac Toe</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <ul>
+        <li>The game is played on a 3x3 grid.</li>
+        <li>
+          Players take turns placing their mark (X or O) on an empty square.
+        </li>
+        <li>
+          The first player to get three of their marks in a row (horizontally,
+          vertically, or diagonally) wins.
+        </li>
+        <li>
+          If all 9 squares are filled and no player has three in a row, the game
+          ends in a draw.
+        </li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="button-container">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="openCreateRoomDialog()"
+      aria-label="Create a new game room"
+    >
+      Create Room
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="openJoinRoomDialog()"
+      aria-label="Join an existing room"
+    >
+      Join Room
+    </button>
+  </div>
+</div>
