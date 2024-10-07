@@ -42,6 +42,7 @@ export class ColyseusService {
   reconnectToken: string | null = null;
 
   constructor(private snackBar: MatSnackBar) {
+    console.log('environment.serverSocketUrl :>> ', environment.serverSocketUrl);
     this.client = new Client(environment.serverSocketUrl);
     this.initializeLocalStorageData();
   }
