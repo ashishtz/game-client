@@ -1,0 +1,35 @@
+.game-container {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+  
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  
+    .content-left {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 10px;
+
+      .box {
+        margin-bottom: 10px;
+
+        .player-chips {
+          margin-right: 5px;
+        }
+      }
+    }
+  
+    .unique-id-section {
+      display: flex;
+      align-items: center;
+
+      .copy-to-clipboard {
+        font-size: 16px;
+        cursor: pointer;
+      }
+    }
+  }
+  

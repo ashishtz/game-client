@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>{{ isCreateMode ? 'Create Room' : 'Join Room' }}</h2>
+<div mat-dialog-content class="join-dialog-content">
+  <form [formGroup]="roomForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Player Name</mat-label>
+      <input matInput formControlName="name" placeholder="Enter your name">
+    </mat-form-field>
+
+    <!-- Only show room ID input if joining a room -->
+    <mat-form-field *ngIf="!isCreateMode" appearance="fill">
+      <mat-label>Room ID</mat-label>
+      <input matInput formControlName="roomId" placeholder="Enter the room ID">
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [disabled]="!roomForm.valid" (click)="onSubmit()">
+    {{ isCreateMode ? 'Create Room' : 'Join Room' }}
+  </button>
+</div>
