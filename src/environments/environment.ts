@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    serverSocketUrl: 'ws://game-server-vifq.onrender.com'
+    serverSocketUrl: 'wss://game-server-vifq.onrender.com'
 };
